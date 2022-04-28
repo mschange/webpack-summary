@@ -6,7 +6,8 @@ const commonConfig = {
     entry: path.resolve(__dirname, "../src/index.js"),
     output: {
         path: path.resolve(__dirname, "../build"),
-        filename: "[name]_[fullhash].bundle.js"
+        filename: "[name]_[fullhash].bundle.js",
+        clean: true
     },
     module: {
         rules: [

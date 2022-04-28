@@ -26,6 +26,9 @@ module.exports = merge(
                     extractComments: false,
                 }), // 压缩js
             ],
+            splitChunks: {
+                chunks: 'all',
+            }
         },
         performance: {
             // hints: "warning", // 枚举
