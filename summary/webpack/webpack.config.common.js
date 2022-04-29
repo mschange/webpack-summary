@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // 分离css
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const commonConfig = {
-    entry: path.resolve(__dirname, "../src/index.js"),
+    entry: path.resolve(__dirname, "../src/index.tsx"),
     output: {
         path: path.resolve(__dirname, "../build"),
         filename: "[name]_[fullhash].bundle.js",
@@ -21,6 +21,15 @@ const commonConfig = {
                     MiniCssExtractPlugin.loader,
                     "css-loader"
                 ]
+            },
+            // 对ts|tsx文件的处理
+            {
+                test: /\.(ts|tsx)$/,
+                use: [
+                    "babel-loader",
+                    'ts-loader',
+                ],
+                exclude: /node_modules/
             },
             {
                 test: /\.less$/,
